@@ -1,0 +1,38 @@
+{
+  "name": "@muryp/vite-html",
+  "version": "0.0.0",
+  "description": "vite plugin for html literal and ",
+  "scripts": {
+    "build": "node cmd.mjs",
+    "preinstall": "npx only-allow pnpm",
+    "lint": "eslint . --report-unused-disable-directives"
+  },
+  "keywords": [
+    "minify",
+    "css",
+    "html",
+    "js",
+    "javascript",
+    "typescript",
+    "template-literals"
+  ],
+  "author": "",
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "devDependencies": {
+    "@types/clean-css": "^4.2.11",
+    "@types/html-minifier": "^4.0.5",
+    "astro": "^4.4.5",
+    "esbuild": "0.20.1",
+    "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "clean-css": "^5.3.3",
+    "html-minifier": "^4.0.0"
+  }
+}
