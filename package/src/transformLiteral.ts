@@ -17,13 +17,13 @@ export default async function compileHtmlLiteral(readFile: string, { configs }: 
           result[key] = cekHtml.join('')
           if (key + 2 <= src.length) {
             const minify = minifyHtml(src[key + 1], configs?.html)
-            result[key + 1] = minify
+            result[key + 1] = minify || src[key + 1]
           }
         } else if (isCss) {
           result[key] = cekCss.join('')
           if (key + 2 <= src.length) {
             const minify = minifyCss(src[key + 1], configs?.css)
-            result[key + 1] = minify
+            result[key + 1] = minify || src[key + 1]
           }
         } else {
           result[key] = cekHtml.join('')

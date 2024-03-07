@@ -10,13 +10,22 @@ const defaultOptsHtml: Options = {
 }
 
 export const minifyHtml = (val: string, opts = defaultOptsHtml) => {
-  return minify(val, opts)
+  console.log(val)
+  try {
+    return minify(val, opts)
+  } catch (err) {
+    console.log('Err [minifyHtml]:', err)
+  }
 }
 
 const defaultOptsCss: cleanCss.Options = {
   returnPromise: false
 }
 export const minifyCss = (val: string, opts = defaultOptsCss) => {
-  const cssMinify = new cleanCss(opts).minify(val)
-  return cssMinify.styles
+  try {
+    const cssMinify = new cleanCss(opts).minify(val)
+    return cssMinify.styles
+  } catch (err) {
+    console.log('Err [cssMinify]:', err)
+  }
 }
