@@ -1,8 +1,9 @@
 import type { AstroIntegration } from "astro";
 import ViteMurypJsLiteral from './vite';
-import type { ArgsMurypJsLiteral } from '../types'
+import type { ArgsMurypJsLiteral } from './type'
 
-export default function murypAstroMinify(configs: ArgsMurypJsLiteral): AstroIntegration {
+export default function murypAstroMinify(configs?: ArgsMurypJsLiteral): AstroIntegration {
+  configs = configs || {}
   return {
     name: "muryp-minify",
     hooks: {
@@ -13,10 +14,10 @@ export default function murypAstroMinify(configs: ArgsMurypJsLiteral): AstroInte
             vite: {
               plugins: [ViteMurypJsLiteral({
                 minify: {
-                  css: configs.minify?.css || true,
-                  html: configs.minify?.html || true,
+                  css: configs?.minify?.css || true,
+                  html: configs?.minify?.html || true,
                 },
-                configs: configs.configs
+                configs: configs?.configs || {}
               })]
             }
           })
@@ -28,7 +29,7 @@ export default function murypAstroMinify(configs: ArgsMurypJsLiteral): AstroInte
                   css: false,
                   html: false,
                 },
-                configs: configs.configs
+                configs: configs?.configs || {}
               })]
             }
           })

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "vite plugin for html literal and ",
   "scripts": {
-    "build": "node cmd.mjs",
+    "build": "tsc && node cmd.mjs",
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint . --report-unused-disable-directives"
   },
@@ -26,13 +26,13 @@
   },
   "devDependencies": {
     "@types/clean-css": "^4.2.11",
-    "@types/html-minifier": "^4.0.5",
     "astro": "^4.4.5",
     "esbuild": "0.20.1",
     "vite": "^5.1.4"
   },
   "dependencies": {
+    "@types/html-minifier-terser": "^7.0.2",
     "clean-css": "^5.3.3",
-    "html-minifier": "^4.0.0"
+    "html-minifier-terser": "^7.2.0"
   }
 }

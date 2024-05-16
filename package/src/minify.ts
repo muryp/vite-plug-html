@@ -1,4 +1,4 @@
-import { Options, minify } from 'html-minifier'
+import { Options, minify } from 'html-minifier-terser'
 import cleanCss from 'clean-css'
 
 const defaultOptsHtml: Options = {

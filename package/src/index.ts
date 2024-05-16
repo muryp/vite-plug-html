@@ -1,4 +1,4 @@
-import ViteMurypJsLiteral from './plugins/vite'
-import murypAstroMinify from './plugins/astro'
+import ViteMurypJsLiteral from './vite'
+import murypAstroMinify from './astro'
 
 export { ViteMurypJsLiteral, murypAstroMinify }

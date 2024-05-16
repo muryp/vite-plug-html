@@ -1,5 +1,5 @@
 import { minifyCss, minifyHtml } from "./minify"
-import type { ArgsMurypJsLiteral } from './types'
+import type { ArgsMurypJsLiteral } from './type'
 
 export default async function compileHtmlLiteral(readFile: string, { configs }: ArgsMurypJsLiteral) {
   const src = readFile.split(/(?<!\\)`/)
@@ -17,7 +17,7 @@ export default async function compileHtmlLiteral(readFile: string, { configs }: 
           result[key] = cekHtml.join('')
           if (key + 2 <= src.length) {
             const minify = minifyHtml(src[key + 1], configs?.html)
-            result[key + 1] = minify || src[key + 1]
+            result[key + 1] = await minify || src[key + 1]
           }
         } else if (isCss) {
           result[key] = cekCss.join('')
