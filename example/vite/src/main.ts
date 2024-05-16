@@ -1,5 +1,5 @@
 const hello:string = html`
-<p>hello world</p>
+<p>hello world!</p>
 `
 
-console.log(hello)
+document.getElementById('app')!.innerHTML = hello

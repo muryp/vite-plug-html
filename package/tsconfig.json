@@ -13,7 +13,8 @@
     "noEmit": false
   },
   "include": [
-    "src/**/*.ts"
+    "src",
+    "./type.ts"
   ],
   "exclude": [
     "node_modules",

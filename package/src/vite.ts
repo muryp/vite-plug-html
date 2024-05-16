@@ -5,7 +5,7 @@ import type { ArgsMurypJsLiteral } from './type'
 
 const fileRegex = /\.(ts|astro|js)$/
 const excludeFolder = /\/(node_modules)\//
-export default function ViteJsLiteral(
+export default function(
   configs?: ArgsMurypJsLiteral,
 ): PluginOption {
   return {

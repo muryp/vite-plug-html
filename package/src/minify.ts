@@ -10,7 +10,6 @@ const defaultOptsHtml: Options = {
 }
 
 export const minifyHtml = (val: string, opts = defaultOptsHtml) => {
-  console.log(val)
   try {
     return minify(val, opts)
   } catch (err) {
