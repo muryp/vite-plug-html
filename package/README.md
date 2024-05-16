@@ -1,0 +1,50 @@
+# HTML & CSS minify on template literal
+
+## Install
+
+```bash
+pnpm add -D @muryp/vite-html
+```
+
+## configs
+
+### types
+
+```typescript
+// src/index.d.ts
+declare global {
+  function html(
+    e: TemplateStringsArray,
+    ...a: Array<string | number | (string | number)[]>
+  ): string
+  type Targs = {
+    name?: string
+    type?: string
+  }
+}
+export {}
+```
+
+### vite
+
+```javascript
+// vite.config.js
+import { defineConfig } from 'vite'
+import htmlPlug from '@muryp/vite-html/vite'
+
+export default defineConfig({
+  plugins: [htmlPlug()],
+})
+```
+
+### Astro
+
+```javascript
+// astro.config.js
+import { defineConfig } from 'astro/config'
+import murypAstroMinify from '@muryp/vite-html/astro'
+
+export default defineConfig({
+  integrations: [murypAstroMinify()],
+})
+```
