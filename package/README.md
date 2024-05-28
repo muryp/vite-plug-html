@@ -51,8 +51,8 @@ const defaultOptsCss: cleanCss.Options = {
   returnPromise: false
 }
 type ArgsMurypJsLiteral = {
-  include?: RegExp // default /\.(ts|astro|js)$/
-  exclude?: RegExp // default /(\/node_modules\/|^commonjsHelpers\.js)/
+  include?: RegExp // default /.*\/src\/.*\.(ts|astro|js)$/
+  exclude?: RegExp // default undefined
   minify?: {
     html?: boolean // default true
     css?: boolean // default true

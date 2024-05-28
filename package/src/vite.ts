@@ -3,15 +3,16 @@ import compileLiteral from './transformLiteral'
 import { PluginOption } from 'vite'
 import type { ArgsMurypJsLiteral } from './type'
 
+const INCLUDE_FILE = /.*\/src\/.*\.(ts|astro|js)$/
 export default function (configs?: ArgsMurypJsLiteral): PluginOption {
   return {
     name: 'murypJsLiteral',
     async load(filePath) {
       try {
-        const fileRg = configs?.include || /\.(ts|astro|js)$/
-        const excludeFolder =
-          configs?.exclude || /(\/node_modules\/|^commonjsHelpers\.js|vite\/preload-helper\.js)/
-        if (fileRg.test(filePath) && !excludeFolder.test(filePath)) {
+        const fileRg = configs?.include || INCLUDE_FILE
+        const excludeFolder = configs?.exclude
+        const isExclude = excludeFolder ? excludeFolder.test(filePath) : false
+        if (fileRg.test(filePath) && !isExclude) {
           const CONTENT_FILE = readFileSync(filePath, 'utf8')
           const result = compileLiteral(CONTENT_FILE, configs || {})
           if (result) {
