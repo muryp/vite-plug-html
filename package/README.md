@@ -37,6 +37,36 @@ export default defineConfig({
 })
 ```
 
+#### opts
+
+```ts
+const defaultOptsHtml: Options = {
+  minifyJS: true,
+  minifyCSS: true,
+  minifyURLs: true,
+  removeComments: true,
+  collapseWhitespace: true,
+}
+const defaultOptsCss: cleanCss.Options = {
+  returnPromise: false
+}
+type ArgsMurypJsLiteral = {
+  include?: RegExp // default /\.(ts|astro|js)$/
+  exclude?: RegExp // default /(\/node_modules\/|^commonjsHelpers\.js)/
+  minify?: {
+    html?: boolean // default true
+    css?: boolean // default true
+  }
+  configs?: {
+    html?: Options // default => defaultOptsHtml
+    css?: OptionsOutput // default => defaultOptsCss
+}
+
+```
+
+- see more option for html minifier [here](https://www.npmjs.com/package/html-minifier-terser)
+- see more option for css minifier [here](https://www.npmjs.com/package/clean-css)
+
 ### Astro
 
 ```javascript
