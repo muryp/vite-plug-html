@@ -41,9 +41,9 @@
   },
   "devDependencies": {
     "@types/clean-css": "^4.2.11",
-    "astro": "^4.4.5",
+    "astro": "^4.15.11",
     "esbuild": "0.20.1",
-    "vite": "^5.1.4"
+    "vite": "^5.4.8"
   },
   "dependencies": {
     "@types/html-minifier-terser": "^7.0.2",
