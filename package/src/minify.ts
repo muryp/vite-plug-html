@@ -11,14 +11,17 @@ const defaultOptsHtml: Options = {
 
 export const minifyHtml = (val: string, opts = defaultOptsHtml) => {
   try {
-    return minify(val, opts)
+    return minify(val, {
+      ...opts,
+      caseSensitive: true,
+    })
   } catch (err) {
     console.log('Err [minifyHtml]:', err)
   }
 }
 
 const defaultOptsCss: cleanCss.Options = {
-  returnPromise: false
+  returnPromise: false,
 }
 export const minifyCss = (val: string, opts = defaultOptsCss) => {
   try {

@@ -14,9 +14,11 @@ export default function (configs?: ArgsMurypJsLiteral): PluginOption {
         const isExclude = excludeFolder ? excludeFolder.test(filePath) : false
         if (fileRg.test(filePath) && !isExclude) {
           const CONTENT_FILE = readFileSync(filePath, 'utf8')
+          // const result = CONTENT_FILE.replace(/html`/gim, '`')
+          // console.log(result)
           const result = compileLiteral(CONTENT_FILE, configs || {})
           if (result) {
-            return await result
+            return result
           }
         }
       } catch (err) {
