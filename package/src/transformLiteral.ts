@@ -11,7 +11,7 @@ export default async function compileHtmlLiteral(
     for (let key = 0; key < src.length; key++) {
       if (key % 2 === 0) {
         const val = src[key]
-        const cekHtml = val.split('html')
+        const cekHtml = val.split(/html$/)
         const isHtml = cekHtml.length > 1 && cekHtml[cekHtml.length - 1] === ''
         const cekCss = val.split('css')
         const isCss = cekCss.length > 1 && cekCss[cekCss.length - 1] === ''

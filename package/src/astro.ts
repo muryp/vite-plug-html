@@ -1,40 +1,45 @@
-import type { AstroIntegration } from "astro";
-import ViteMurypJsLiteral from './vite';
+import type { AstroIntegration } from 'astro'
+import ViteMurypJsLiteral from './vite'
 import type { ArgsMurypJsLiteral } from './type'
 
-export default function murypAstroMinify(configs?: ArgsMurypJsLiteral): AstroIntegration {
-  configs = configs || {}
+// TODO: astro minify cannot be false
+export default function murypAstroMinify(
+  configs?: ArgsMurypJsLiteral,
+): AstroIntegration {
   return {
-    name: "muryp-minify",
+    name: 'muryp-minify',
     hooks: {
-      "astro:config:setup": async ({ command, updateConfig }) => {
-        console.log('hello :', command)
+      'astro:config:setup': async ({ command, updateConfig }) => {
         if (command !== 'dev') {
           updateConfig({
             vite: {
-              plugins: [ViteMurypJsLiteral({
-                minify: {
-                  css: configs?.minify?.css || true,
-                  html: configs?.minify?.html || true,
-                },
-                configs: configs?.configs || {}
-              })]
-            }
+              plugins: [
+                ViteMurypJsLiteral({
+                  minify: {
+                    css: configs?.minify?.html === undefined ? true : false,
+                    html: configs?.minify?.css === undefined ? true : false,
+                  },
+                  configs: configs?.configs || {},
+                }),
+              ],
+            },
           })
         } else {
           updateConfig({
             vite: {
-              plugins: [ViteMurypJsLiteral({
-                minify: {
-                  css: false,
-                  html: false,
-                },
-                configs: configs?.configs || {}
-              })]
-            }
+              plugins: [
+                ViteMurypJsLiteral({
+                  minify: {
+                    css: false,
+                    html: false,
+                  },
+                  configs: configs?.configs || {},
+                }),
+              ],
+            },
           })
         }
       },
     },
-  };
-};
+  }
+}
