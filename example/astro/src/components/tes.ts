@@ -1,5 +1,8 @@
 export default function TesJs() {
   return html`
-    <p>this from tes component </p>
+    <div>
+      <p id="hello">this from' tes component</p>
+      <button>hello</button>
+    </div>
   `
 }

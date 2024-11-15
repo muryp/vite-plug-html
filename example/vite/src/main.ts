@@ -1,7 +1,7 @@
 import sub from './sub'
 
 const hello: string = html` <p>hello world!</p> `
-const Search = 'hello tiga'
+const Search = 'hello tiga.html'
 
 function main(listTodo: string) {
   return html`
@@ -15,6 +15,7 @@ function main(listTodo: string) {
         class="btn btn-primary w-1/3 cursor-pointer">
         load more
       </button>
+      <a href="/hello.html">hello</a>
     </div>
   `
 }
