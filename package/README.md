@@ -25,6 +25,13 @@ declare global {
 export {}
 ```
 
+or add in `src/type.d.ts`
+
+```typescript
+import '@muryp/vite-html/type'
+
+```
+
 ### vite
 
 ```javascript

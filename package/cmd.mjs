@@ -1,5 +1,5 @@
 import { build } from 'esbuild'
-import { readFileSync } from 'fs'
+import { copyFileSync, readFileSync } from 'fs'
 
 const getPkg = JSON.parse(readFileSync('./package.json'))
 
@@ -22,3 +22,4 @@ build(Opts)
 Opts.format = 'cjs'
 Opts.outExtension = { '.js': '.cjs' }
 build(Opts)
+copyFileSync('./type.d.ts', 'dist/html.d.ts')

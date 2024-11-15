@@ -1,6 +1,6 @@
 {
   "name": "@muryp/vite-html",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "vite plugin for html literal and ",
   "scripts": {
     "build": "tsc && node cmd.mjs",
@@ -29,7 +29,7 @@
       "import": "./dist/index.mjs"
     },
     "./type": {
-      "types": "./type.d.ts"
+      "types": "./dist/html.d.ts"
     }
   },
   "files": [
